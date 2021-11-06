@@ -1,0 +1,19 @@
+# "run docker": docker-compose up
+# "see directory docker": docker ps
+# "exesecute a command prompt web app doccer": docker exec -it 909304225ff6 bash -l
+# "command directory": ls
+# "create superuser django app": python manage.py createsuperuser
+# "migrate appl": python manage.py migrate
+
+version: '3.9'
+
+services:
+  db:
+      image: postgres
+
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
